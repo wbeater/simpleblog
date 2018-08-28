@@ -82,6 +82,7 @@ Copy the file: /path/to/project/documents/env/nginx/twentyci.conf --> /etc/nginx
 After that, Start nginx & php7.2-fpm
 
 ~~~
+service nginx restart
 service php7.2-fpm restart
 service mysqld restart
 ~~~
