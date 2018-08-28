@@ -82,8 +82,20 @@ Copy the file: /path/to/project/documents/env/nginx/twentyci.conf --> /etc/nginx
 After that, Start nginx & php7.2-fpm
 
 ~~~
+service nginx restart
 service php7.2-fpm restart
 service mysqld restart
+~~~
+
+### Run migrations to create tables and dummy data
+
+The following command will create admin, demo account and hundreds of posts
+Admin account: admin/admin
+User account:  demo/demo
+
+~~~
+cd /path/to/project
+./yii migrate/fresh
 ~~~
 
 You can then access the application through the following URL:
