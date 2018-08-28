@@ -145,6 +145,7 @@ class Post extends \yii\db\ActiveRecord
             if (!$this->status) $this->status = 0;
             $this->updated_at = time();
             $this->slug = \app\helpers\StringHelper::slug($this->title);
+            $this->content = preg_replace('/\<script.*?\>/mi', '<div>', preg_replace('/\<\/script\>/mi', '</div>', $this->content));
             return true;
         }
         

@@ -2,6 +2,7 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 use yii\helpers\Html;
+use \app\helpers\Constant;
 ?>
 <?php $this->beginBlock('header') ?>
 <header class="masthead" style="background-image: url('<?=$model->image_url?>')">
@@ -25,7 +26,7 @@ use yii\helpers\Html;
 
 <article>
     <div class="container">
-        <?php if ($model->status != \app\helpers\Constant::STATUS_PUBLISHED):?>
+        <?php if ($model->status != Constant::STATUS_PUBLISHED || ($model->status == Constant::STATUS_PUBLISHED && $model->published_time > time())):?>
         <div class="p-3 mb-2 bg-warning text-dark"><?=Yii::t('app', 'This post was not published.')?> <strong><em><?=Html::a(Yii::t('app', 'Update now'), ['/post/update', 'id' => $model->id])?></em></strong></div>
         <?php endif?>
         <div class="row">

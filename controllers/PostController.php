@@ -168,7 +168,10 @@ class PostController extends Controller {
         }
         
         if ($post->status != Constant::STATUS_PUBLISHED && (!Helper::isOwner($post->created_by) && !Helper::isAdmin())) {
-            throw new NotFoundHttpException(Yii::t('app', 'The post was not published.'));
+            throw new NotFoundHttpException(Yii::t('app', 'The post is not published.'));
+        }
+        elseif ($post->status == Constant::STATUS_PUBLISHED && $post->published_time > time() && (!Helper::isOwner($post->created_by) && !Helper::isAdmin())) {
+            throw new NotFoundHttpException(Yii::t('app', 'The post is not published.'));
         }
 
         return $this->render('view', [
