@@ -1,5 +1,7 @@
 This project uses Yii 2 framework [Yii 2](http://www.yiiframework.com/).
 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/8B3L5fyz1nI/0.jpg)](http://www.youtube.com/watch?v=8B3L5fyz1nI "Yii2 Simple Blog")
+
 DIRECTORY STRUCTURE
 -------------------
 
