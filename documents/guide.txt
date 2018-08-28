@@ -1,0 +1,27 @@
+I. Setup environments:
+    1. Setup PHP 7.2 on Ubuntu 16.04
+
+    2. Setup MariaDB / MySQL
+        # mysql -uroot -p
+        > create database 20ci charset utf8;
+        > create user 20ci_admin;
+        > grant all on 20ci.* to '20ci_admin'@'localhost' identified by '20ci8888';
+
+    3. Setup webserver Nginx:
+        Copy file env/nginx/twentyci.conf into /etc/nginx/conf.d
+
+II. Configure environments:
+    1. Config PHP 7.2 - FPM
+    2. Run following commands:
+        a) # cd /path/to/project
+        b) # composer global require "fxp/composer-asset-plugin:~1.3"
+        c) # composer install
+        d) # ./yii migrate/fresh
+
+    2. Config MariaDB
+
+    3. Config Nginx
+
+    4. /etc/hosts file:
+        add > 127.0.0.1 20ci.blog
+    
